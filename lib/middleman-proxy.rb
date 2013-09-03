@@ -96,6 +96,10 @@ module Middleman
             end
           end
 
+          if proxy[:headers]
+            headers.merge! proxy[:headers]
+          end
+
           # Rack documentation says CONTENT_TYPE and CONTENT_LENGTH aren't prefixed by HTTP_
           headers['Content-Type'] = env['CONTENT_TYPE'] if env['CONTENT_TYPE']
 
